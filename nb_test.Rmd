@@ -1,0 +1,25 @@
+---
+title: "EPPS 7313 Demo"
+output: html_notebook
+---
+
+
+
+```{r}
+library(foreign)
+setwd("C:/Users/19728/Desktop/EPPS 7313")
+
+gss<-read.dta("GSS2012.dta")
+gss<-as.data.frame(gss)
+head(gss)
+sex<-gss$sex
+tvhours<-gss$tvhours
+rhhwork<-gss$rhhwork
+sphhwork<-gss$sphhwork
+class<-gss$class
+marital<-gss$marital
+
+#t-test assuming equal variance
+boxplot(tvhours ~ sex)
+t.test(tvhours~sex, var.equal=TRUE)
+```
